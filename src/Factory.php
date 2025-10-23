@@ -2,7 +2,7 @@
 
 namespace AbuseIO\Collectors;
 
-use Composer\Autoload\ClassMapGenerator;
+use Composer\ClassMapGenerator\ClassMapGenerator;
 use Illuminate\Support\Arr;
 use Log;
 
