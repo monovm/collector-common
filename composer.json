@@ -1,7 +1,6 @@
 {
     "name": "monovm/collector-common",
     "description": "Collector common helper package",
-    "version": "5.1.0",
     "keywords": ["laravel", "abuseio", "collector"],
     "homepage": "http://abuse.io",
     "type": "library",
