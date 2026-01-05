@@ -27,7 +27,23 @@ class Factory
      */
     public static function getCollectors()
     {
-        $collectorClassList = ClassMapGenerator::createMap(base_path().'/vendor/abuseio');
+        // Scan both vendor/abuseio and vendor/monovm for collector packages
+        $collectorClassList = [];
+
+        $vendorPaths = [
+            base_path().'/vendor/abuseio',
+            base_path().'/vendor/monovm',
+        ];
+
+        foreach ($vendorPaths as $path) {
+            if (is_dir($path)) {
+                $collectorClassList = array_merge(
+                    $collectorClassList,
+                    ClassMapGenerator::createMap($path)
+                );
+            }
+        }
+
         /** @noinspection PhpUnusedParameterInspection */
         $collectorClassListFiltered = Arr::where(
             array_keys($collectorClassList),
